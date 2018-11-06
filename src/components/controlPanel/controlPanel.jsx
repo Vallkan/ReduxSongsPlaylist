@@ -45,7 +45,7 @@ export class ControlPanel extends Component {
                 onClick={() => this.props.changeStatus('Stop')}>Stop</span>
                 <button className="nextButton"  onClick={() => this.onNextSong()} disabled={this.checkNextDisabled()} />
                 {' '} - {' '}
-                <button className="likeButton" onClick={() => this.toggleFavorite()}/>
+                <button className={this.props.activeSong.liked ? 'red' : 'likeButton'} onClick={() => this.toggleFavorite()}>&#10084;</button>
                 <br/>
             </div>
         )

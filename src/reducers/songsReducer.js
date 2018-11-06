@@ -41,5 +41,6 @@ export default function songsReducer(state = initialState, action) {
             return state.map((song) => (song.id === action.payload.id ? {...song, liked: !song.liked} : song));
         default:
             return state;
+
     }
 }
