@@ -1,5 +1,6 @@
 export const CHANGE_STATUS = 'CHANGE_STATUS';
 export const CHANGE_SONG = 'CHANGE_SONG';
+export const CHANGE_NAME = 'CHANGE_NAME';
 export const TOGGLE_LIKE = 'TOGGLE_LIKE';
 
 export const changeStatus = (status) => ({
@@ -9,11 +10,18 @@ export const changeStatus = (status) => ({
     }
 });
 
-export const changeSong = (song) => ({
+export const changeSong = (songId) => ({
     type: CHANGE_SONG,
     payload: {
-        song
+        songId
     }
+});
+
+export const changeName = (song) => ({
+   type: CHANGE_NAME,
+   payload: {
+       song
+   }
 });
 
 export const toggleLike = (id, liked) => ({

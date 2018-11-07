@@ -39,8 +39,9 @@ export default function songsReducer(state = initialState, action) {
     switch (action.type) {
         case 'TOGGLE_LIKE':
             return state.map((song) => (song.id === action.payload.id ? {...song, liked: !song.liked} : song));
+        case 'CHANGE_NAME':
+            return state.map((song) => (song.id === action.payload.id ? {...song, name: !action.payload.name} : song));
         default:
             return state;
-
     }
 }

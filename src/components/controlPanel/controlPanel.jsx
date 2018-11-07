@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 
 export class ControlPanel extends Component {
@@ -37,15 +36,16 @@ export class ControlPanel extends Component {
     }
 
     render() {
-        return(
+        return (
             <div>
-                <button className="prevButton" onClick={() => this.onPrevSong()} disabled={this.checkPrevDisabled()} />
+                <button className="prevButton" onClick={() => this.onPrevSong()} disabled={this.checkPrevDisabled()}/>
                 <span onClick={() => this.props.changeStatus('Play')}>Play</span> | <span
                 onClick={() => this.props.changeStatus('Pause')}>Pause</span> | <span
                 onClick={() => this.props.changeStatus('Stop')}>Stop</span>
-                <button className="nextButton"  onClick={() => this.onNextSong()} disabled={this.checkNextDisabled()} />
+                <button className="nextButton" onClick={() => this.onNextSong()} disabled={this.checkNextDisabled()}/>
                 {' '} - {' '}
-                <button className={this.props.activeSong.liked ? 'red' : 'likeButton'} onClick={() => this.toggleFavorite()}>&#10084;</button>
+                <button className={this.props.activeSong.liked ? 'red' : 'likeButton'}
+                        onClick={() => this.toggleFavorite()}>&#10084;</button>
                 <br/>
             </div>
         )

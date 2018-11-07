@@ -7,12 +7,14 @@ import statusReducer from './reducers/statusReducer';
 import songReducer from './reducers/songReducer';
 import songsReducer from './reducers/songsReducer';
 import activeSongReducer from './reducers/activeSongReducer';
+import logsReducer from './reducers/logsReducer';
 
 const rootReducer = combineReducers({
     status: statusReducer,
     song: songReducer,
     songs: songsReducer,
     active: activeSongReducer,
+    logs: logsReducer,
 });
 
 const store = createStore(rootReducer,
