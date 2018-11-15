@@ -1,17 +1,19 @@
 
 .active {
-    background: #B9E4E0;
+    background: aqua;
 }
 
 button {
-    border:none;
+    border: none;
     outline: none;
 }
 
-.PlayerContainer {
+.Player-container {
     display: flex;
     align-items: center;
     flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .tracks-list {
@@ -21,14 +23,18 @@ button {
     width: 250px;
 }
 
-.prevButton {
-     background: url('images/download.png') no-repeat;
-     width: 20px;
-     height: 20px;
-     background-size: 15px 15px;
- }
+.prev-button {
+    top: 6px;
+    position: relative;
+    background: url('images/download.png') no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 15px 15px;
+}
 
-.nextButton {
+.next-button {
+    top: 1px;
+    position: relative;
     transform: rotate(180deg);
     background: url('images/download.png') no-repeat;
     width: 20px;
@@ -36,7 +42,7 @@ button {
     background-size: 15px 15px;
 }
 
-.likeButton {
+.like-button {
 
 }
 
@@ -54,46 +60,7 @@ button {
     list-style: none;
     font: 14px "Trebuchet MS", "Lucida Sans";
     padding: 0;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
-}
-/*.rounded button {*/
-    /*position: relative;*/
-    /*display: block;*/
-    /*padding: .4em .4em .4em 2em;*/
-    /*margin: .5em 0;*/
-    /*color: #444;*/
-    /*text-decoration: none;*/
-    /*border-radius: .3em;*/
-    /*transition: .3s ease-out;*/
-/*}*/
-
-/*.rounded span {*/
-    /**/
-/*}*/
-
-/*.rounded button:hover {background: #B9E4E0;}*/
-/*.rounded button:hover:before {transform: rotate(360deg);}*/
-/*.rounded button:before {*/
-    /*content: counter(li);*/
-    /*counter-increment: li;*/
-    /*position: absolute;*/
-    /*left: -1.3em;*/
-    /*top: 50%;*/
-    /*margin-top: -1.3em;*/
-    /*background: #8FD4C1;*/
-    /*height: 2em;*/
-    /*width: 2em;*/
-    /*line-height: 2em;*/
-    /*border: .3em solid white;*/
-    /*text-align: center;*/
-    /*font-weight: bold;*/
-    /*border-radius: 2em;*/
-    /*transition: all .2s ease-out;*/
-/*}*/
-
-.PlayerContainer {
-    max-width: 600px;
-    margin: 0 auto;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
 .action-likes-row {
@@ -117,4 +84,28 @@ button {
     justify-content: space-between;
     width: 100%;
     margin-top: 5px;
+}
+
+.status-buttons {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    align-items: center;
+
+}
+
+.nav-item {
+    margin-left: 10px;
+    color: #007FFF;
+    font: bold 24px "Helvetica Neue";
+    text-decoration: none;
+}
+
+.selected {
+    text-decoration: underline;
 }

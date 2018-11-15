@@ -1,7 +1,7 @@
 export const CHANGE_STATUS = 'CHANGE_STATUS';
 export const CHANGE_SONG = 'CHANGE_SONG';
-export const CHANGE_NAME = 'CHANGE_NAME';
-export const TOGGLE_LIKE = 'TOGGLE_LIKE';
+export const EDIT_SONG = 'EDIT_SONG';
+export const ADD_SONG = 'ADD_SONG';
 
 export const changeStatus = (status) => ({
     type: CHANGE_STATUS,
@@ -17,16 +17,16 @@ export const changeSong = (songId) => ({
     }
 });
 
-export const changeName = (song) => ({
-   type: CHANGE_NAME,
-   payload: {
-       song
-   }
+export const editSong = (id, data) => ({
+    type: EDIT_SONG,
+    payload: {
+        id, data
+    }
 });
 
-export const toggleLike = (id, liked) => ({
-    type: TOGGLE_LIKE,
+export const addSong = (id, name, duration) => ({
+    type: ADD_SONG,
     payload: {
-        id, liked
+        id, name, duration
     }
 });
