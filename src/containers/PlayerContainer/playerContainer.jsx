@@ -8,7 +8,6 @@ import {LogsList} from "../../components/logsList/logsList";
 import {AddNewSong} from "../../components/addNewSong/addNewSong";
 import PropTypes from "prop-types";
 
-
 class PlayerContainer extends Component {
     static propTypes = {
         activeSong: PropTypes.object.isRequired,

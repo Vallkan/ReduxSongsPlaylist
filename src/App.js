@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PlayerContainer from './containers/PlayerContainer/playerContainer';
 import {AlbumsContainer} from './containers/AlbumsContainer/AlbumsContainer';
-import {UsersContainer} from "./containers/UsersContainer/UsersContainer";
+import UsersContainer from "./containers/UsersContainer/UsersContainer";
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Error} from './components/error/error';

@@ -10,18 +10,22 @@ import logsReducer from './reducers/logsReducer';
 import { pingMiddleware } from './middlewares/pingMiddleware';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadState } from './localstorage';
+import {getUsersmiddleware} from "./middlewares/getUsersMiddleware";
+import usersReducer from "./reducers/usersReducer";
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     status: statusReducer,
     song: songReducer,
     songs: songsReducer,
     logs: logsReducer,
+    users: usersReducer,
 });
 
 const persistedState = loadState();
 const store = createStore(rootReducer,
     persistedState,
-    composeWithDevTools(applyMiddleware(pingMiddleware)),
+    composeWithDevTools(applyMiddleware(thunk, pingMiddleware, getUsersmiddleware)),
 );
 
 render(

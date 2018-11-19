@@ -11,7 +11,6 @@ export class AddNewSong extends Component {
         const id = Math.round(Math.random() * 1000);
         let name = window.prompt('Song name');
         let duration = parseInt(window.prompt('Duration'));
-        console.log(typeof duration);
         duration > 0 ? this.props.addSong(id, name, duration) : alert('duration must be number') ;
     };
 

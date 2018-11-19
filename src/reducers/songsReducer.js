@@ -47,7 +47,7 @@ export default function songsReducer(state = initialState, action) {
                     duration: action.payload.duration,
                     liked: false
                 }
-            ]
+            ];
         default:
             return state;
     }
