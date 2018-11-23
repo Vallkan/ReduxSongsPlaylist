@@ -66,10 +66,10 @@ class PlayerContainer extends Component {
 
 export default connect(
     (store) => ({
-        status: store.status,
-        activeSong: store.songs.find((song) => song.id === store.song),
-        songs: store.songs,
-        logs: store.logs,
+        status: store.playerTab.status,
+        activeSong: store.playerTab.songs.find((song) => song.id === store.playerTab.song),
+        songs: store.playerTab.songs,
+        logs: store.playerTab.logs,
     }),
     (dispatch) => ({
         changeStatus: status => dispatch(changeStatus(status)),

@@ -109,3 +109,22 @@ button {
 .selected {
     text-decoration: underline;
 }
+
+.album {
+    width: 200px;
+    height: 200px;
+    display: inline-flex;
+    border: 1px solid blue;
+    margin: auto;
+}
+
+.albumsHeader {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.picture {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+}
