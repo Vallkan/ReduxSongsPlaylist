@@ -1,3 +1,6 @@
+.App {
+    font-family: Helvetica, serif;
+}
 
 .active {
     background: aqua;
@@ -116,6 +119,7 @@ button {
     display: inline-flex;
     border: 1px solid blue;
     margin: auto;
+    flex-direction: column;
 }
 
 .albumsHeader {
@@ -127,4 +131,16 @@ button {
     width: 150px;
     height: 150px;
     display: inline-block;
+}
+
+.edit-album {
+    float: right;
+    width: 25px;
+    height: 25px;
+}
+
+.form-wrapper {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
 }

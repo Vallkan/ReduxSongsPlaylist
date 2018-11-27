@@ -8,6 +8,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Error} from './components/error/error';
 import {Navigation} from "./components/navigation/navigation";
 import NewAlbum from "./containers/newAlbum/newAlbum";
+import EditAlbum from './containers/editAlbum/editAlbum';
 
 class App extends Component {
     render() {
@@ -21,7 +22,8 @@ class App extends Component {
                             <Route path="/users" component={UsersContainer}/>
                             <Route path="/albums" component={AlbumsContainer} exact/>
                             <Route path="/albums/new" component={NewAlbum}/>
-                            <Route path="/albums/:number" component={AlbumInfo}/>
+                            <Route path="/albums/:number" component={AlbumInfo} exact/>
+                            <Route path="/albums/:number/edit" component={EditAlbum} exact/>
                             <Route component={Error}/>
                         </Switch>
                     </div>

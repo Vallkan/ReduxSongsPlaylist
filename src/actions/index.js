@@ -12,6 +12,9 @@ export const REQUEST_ALBUMS_ERROR = 'REQUEST_ALBUMS_ERROR';
 export const REQUEST_ALBUM_ERROR = 'REQUEST_ALBUM_ERROR';
 export const REQUEST_USERS_ERROR = 'REQUEST_USERS_ERROR';
 export const POST_NEW_ALBUM = 'POST_NEW_ALBUM';
+export const NEW_ALBUM_SUCCESS = 'NEW_ALBUM_SUCCESS';
+export const EDIT_ALBUM = 'EDIT_ALBUM';
+export const EDIT_ALBUM_SUCCESS = 'EDIT_ALBUM_SUCCESS';
 
 export const changeStatus = (status) => ({
     type: CHANGE_STATUS,
@@ -42,14 +45,13 @@ export const addSong = (id, name, duration) => ({
 });
 
 export const requestUsers = () => dispatch => {
-
     dispatch({
         type: REQUEST_USERS,
     });
 
     const fetcher = (url) => {
         fetch(url)
-            .then((response) =>  response.json() )
+            .then((response) => response.json())
             .then((data) => {
                 dispatch(requestUsersSuccess(data, false));
             })
@@ -114,28 +116,20 @@ export const requestAlbumsError = (status) => ({
 });
 
 export const requestAlbum = (id) => dispatch => {
-    console.log('requestAlbum action id', id);
     dispatch({
         type: REQUEST_ALBUM,
     });
 
-    console.log(id, dispatch);
-    console.log(dispatch);
     const fetcher = (url) => {
-        console.log(url);
         fetch(url)
-            .then((resp) => {
-                return resp.json()
-            })
+            .then((resp) => resp.json())
             .then((data) => {
-                console.log(data);
                 dispatch(requestAlbumSuccess(data, false));
             })
             .catch(() => {
                 dispatch(requestAlbumError('error'));
             })
     };
-    //
     return fetcher('https://jsonplaceholder.typicode.com/albums/' + id + '/photos');
 };
 
@@ -161,29 +155,79 @@ export const postNewAlbum = (album) => dispatch => {
         }
     });
 
+
     const fetcher = (url) => {
-        console.log('before fetch');
         fetch(url, {
             method: 'post',
-            headers: {
-                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-            },
-            body: album
+            body: JSON.stringify({
+                title: album.title,
+                userId: album.ownerId,
+            }),
         })
-            .then((resp) => {
-                return resp.json()
+            .then((response) => response.json())
+            .then(() => {
+                dispatch(newAlbumSuccess({
+                        title: album.title,
+                        userId: parseInt(album.ownerId),
+                        id: album.id
+                    })
+                );
             })
-            .then((data) => {
-                // dispatch(requestAlbumsSuccess(data, false));
-                alert(data)
-            })
-            .catch(() => {
-                // dispatch(requestAlbumsError('error'));
-                alert('error!');
+            .catch((error) => {
+                alert(error);
             })
     };
-    //
+
     return fetcher('https://jsonplaceholder.typicode.com/albums');
 };
 
+export const newAlbumSuccess = (data) => ({
+    type: NEW_ALBUM_SUCCESS,
+    payload: {
+        data
+    }
+});
 
+export const editAlbum = (album) => dispatch => {
+    dispatch({
+        type: EDIT_ALBUM,
+        payload: {
+            album
+        }
+    });
+
+    console.log(album);
+    const fetcher = (url) => {
+        console.log(url);
+        fetch(url, {
+            method: 'put',
+            body: JSON.stringify({
+                title: album.title.value,
+                userId: album.ownerId.value,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(() => {
+                dispatch(editAlbumSuccess({
+                        id: album.id,
+                        title: album.title,
+                        userId: parseInt(album.ownerId),
+                    })
+                );
+            })
+            .catch((error) => {
+                alert(error);
+            })
+    };
+
+    return fetcher('https://jsonplaceholder.typicode.com/albums/' + album.id);
+};
+
+export const editAlbumSuccess = (data) => ({
+    type: EDIT_ALBUM_SUCCESS,
+    payload: {
+        data
+    }
+});
